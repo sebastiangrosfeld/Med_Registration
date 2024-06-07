@@ -1,10 +1,7 @@
 package com.example.med_registration_server.domain;
 
-
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.List;
 
 @Entity
 @Data
@@ -12,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Getter
-public class Calendar {
+public class Settings {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +18,9 @@ public class Calendar {
     @ToString.Exclude
     private Long id;
 
-    @OneToMany
-    @EqualsAndHashCode.Exclude
-    private List<Appointment> appointments;
+    @Column(nullable = false)
+    private Boolean option1;
+
+    @Column(nullable = false)
+    private Boolean option2;
 }

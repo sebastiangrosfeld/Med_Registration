@@ -1,4 +1,4 @@
-package com.example.med_registration_server.domain;
+package com.example.med_registration_server.domain.entity;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.example.med_registration_server.domain;
+package com.example.med_registration_server.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Getter
-public class Entrepreneur {
+public class Business {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,26 +21,28 @@ public class Entrepreneur {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String email;
-
-    @Column(nullable = false, unique = true)
-    private String nip;
-
-    @Column(nullable = false)
     private String name;
 
-    @Column()
+    @Column(nullable = false)
     private String description;
 
-    @OneToOne
-    @EqualsAndHashCode.Exclude
-    private Settings settings;
+    @Column(nullable = false)
+    private String size;
 
     @OneToMany
     @EqualsAndHashCode.Exclude
     private List<Opinion> opinions;
 
-    @OneToMany
+    @OneToOne
     @EqualsAndHashCode.Exclude
-    private List<Business> businesses;
+    private Calendar calendar;
+
+    @Embedded
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Localization location;
+
+    @ElementCollection
+    @EqualsAndHashCode.Exclude
+    private List<Service> services;
 }

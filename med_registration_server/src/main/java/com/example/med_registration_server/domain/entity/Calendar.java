@@ -1,10 +1,11 @@
-package com.example.med_registration_server.domain;
+package com.example.med_registration_server.domain.entity;
 
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -21,7 +22,14 @@ public class Calendar {
     @ToString.Exclude
     private Long id;
 
+    @Column(nullable = false, unique = true)
+    private UUID calendarCode;
+
     @OneToMany
     @EqualsAndHashCode.Exclude
     private List<Appointment> appointments;
+
+    @OneToOne
+    @EqualsAndHashCode.Exclude
+    private Business business;
 }

@@ -1,4 +1,4 @@
-package com.example.med_registration_server.domain;
+package com.example.med_registration_server.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -20,7 +20,7 @@ public class Appointment {
     @ToString.Exclude
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String purpose;
 
     @Column(nullable = false)

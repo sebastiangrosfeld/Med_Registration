@@ -36,4 +36,8 @@ public class Opinion {
     @EqualsAndHashCode.Exclude
     private Client client;
 
+    @ManyToOne
+    @EqualsAndHashCode.Exclude
+    private Business business;
+
 }
